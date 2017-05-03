@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Шаблон</title>
+	 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+ 
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	  var socket = io.connect('http://localhost:3000');
+	</script>
+
+
+
+</head>
+<body>
+
+
+
+	<% include partials/header %>
+
+	<% if (page == "main") { %>
+		<% include pages/index %>
+	<% } %>
+
+	<% if (page == "about") { %>
+		<% include pages/about %>
+	<% } %>
+
+	<% if (page == "profile") { %>
+		<% include pages/profile %>
+	<% } %>
+
+	<% if (page == "game") { %>
+		<% include pages/game %>
+	<% } %>
+
+	<% if (page == "404") { %>
+		<% include pages/404 %>
+	<% } %>
+
+	<% if (page == "500") { %>
+		<% include pages/500 %>
+	<% } %>
+
+	<% include partials/footer %>
+
+</body>
+<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="/js/game.js"></script>
+</html>

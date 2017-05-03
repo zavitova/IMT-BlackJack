@@ -1,0 +1,38 @@
+	<main class="content">
+		<div class="container">
+			<h1>Ваш профайл</h1>
+			<div class="infoPlayer">
+				<div class="photoPlayer">
+                    <%if (user.local.sampleFile) { %>
+					<img class="profileAvatar" src="<%=user.local.sampleFile%>" alt="">
+                    <% } %>
+				</div>
+				<div class="dataPlayer">
+					<form action="http://localhost:3000/editProfile" method="post" ref='uploadForm' encType="multipart/form-data">
+						<input type="text" class="form-control" value="<%if (user.local.fname){%><%= user.local.fname%><%}%>" placeholder="fname" name="fname"><br>
+						<input type="text" class="form-control" value="<%if (user.local.lname){%><%= user.local.lname%><%}%>" placeholder="lname" name="lname"><br>
+						<input type="text" class="form-control" value="<%= user.local.email %>" name="email"><br>
+						<input type="text" class="form-control" value="" placeholder="passwd" name="passwd"><br>
+						<input type="file" name="sampleFile" />
+						<input type='submit' value="Сохранить изменения" name="profile"/>
+					</form>
+				</div>
+				<div class="PlayerBalanceProfile">
+					<div class="form-group">
+						<label>Доступный баланс :
+							<span id="userBalance"><%= user.local.balance %></span>
+						</label>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2">
+							<input id="topUpBalance" type="submit" class="btn btn-warning" value="Пополнить на 1000">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main><!-- .content -->
+
+</div><!-- .wrapper -->
+
+	<script type="text/javascript" src="/js/profile.js"></script>
